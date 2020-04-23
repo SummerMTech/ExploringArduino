@@ -1,20 +1,18 @@
  void setup() {
   pinMode(13,INPUT);
-  for(int i=3; i<9; i++){
+  for(int i=2; i<10; i++){
       pinMode(i,OUTPUT);
     }
 }
 
 void loop() {
   boolean pulsador=digitalRead(13);
-  if(pulsador){
-      while(pulsador==true){
-          for(int a=3;a<9;a++){
+  if(pulsador){      
+          for(int a=2;a<10;a++){
               digitalWrite(a-1,LOW);
               digitalWrite(a,HIGH);
               delay(100);
           }  
-           digitalWrite(8,LOW);
-      }       
+           digitalWrite(9,LOW);    
     }
 }
