@@ -1,11 +1,11 @@
  int tiempo;
  void setup() {
+  Serial.begin(9600);
   pinMode(13,INPUT);
   for(int i=2; i<10; i++){
       pinMode(i,OUTPUT);
     }
 }
-
 void loop() {
   iniciar:
   for(int i=2; i<10; i++){
@@ -18,10 +18,11 @@ void loop() {
     for(int a=2;a<10;a++){
       tiempo=analogRead(A0);
       button=digitalRead(13);
+      Serial.println(tiempo);
       if(button){delay(200); goto iniciar;}
       digitalWrite(a-1,LOW);
       digitalWrite(a,HIGH);
-      delay(tiempo);
+      delayMicroseconds(tiempo);
     }  
    digitalWrite(9,LOW);    
   }
